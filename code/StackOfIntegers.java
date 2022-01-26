@@ -1,7 +1,8 @@
+import java.util.Scanner;
+
 public class StackOfIntegers {
     private int elements[];
     private int size;
-    private int top=-1;
 
     //constructors
     //construct an empty stack with a default capacity of 16
@@ -21,7 +22,11 @@ public class StackOfIntegers {
         this.elements=elements;
     }
     public int getSize(){
-        return size;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter array size: ");
+        int overwrite_int=Integer.parseInt(sc.nextLine());
+//        System.out.println("overwritten_int= "+overwrite_int);
+        return overwrite_int;
     }
     public void setSize(){
         this.size=size;
@@ -29,26 +34,36 @@ public class StackOfIntegers {
 
     //methods
     //return true if stack is empty
+    //if size=0 return true, else if size >0 return false <<try>>
     public boolean empty(){
-        if (this.top==-1)
+        if (this.size==0)
             return true;
         else
             return false;
     }
-
+//
+//    //overwrite the size?? then use the size top peek and pop.
     public int peek(){
-        return elements[top];
+        return elements[size];
     }
-
+//if len(element)=size
     public void push(int val){
-        this.top+=1;
-        this.elements[this.top]=val;
+        if (elements.length==this.size+1) {
+            System.out.println("Exceeed stack size");
+            return;
+        }
+        ++this.size;
+        this.elements[this.size]=val;
 
     }
 
     public int pop(){
-        int temp=this.elements[this.top];
-        this.top-=1;
+        if (this.size==-1){
+            System.out.println("Nothing to pop, whatchu doing");
+            return 0;
+        }
+        int temp=this.elements[this.size];
+        --this.size;
         return temp;
     }
 

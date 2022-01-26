@@ -1,12 +1,11 @@
 public class StackOfIntegersMain {
-    public static void main(String[] args){
-        StackOfIntegers stack=new StackOfIntegers();
-
+    public static void main(String[] args) {
+        StackOfIntegers st=new StackOfIntegers();
         for (int i=0;i<10;i++)
-            stack.push(i);
+            st.push(i);
 
-        System.out.println("peek: "+stack.peek());
-        while(!stack.empty())
-            System.out.print(stack.pop()+" ");
+        System.out.println("peek: "+st.peek());
+        while(!st.empty())
+            System.out.print(st.pop()+" ");
     }
 }
